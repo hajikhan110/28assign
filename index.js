@@ -21,29 +21,43 @@ an adult.
 //#! /usr/bin/env node
 //let age: number;
 import inquirer from "inquirer";
-let age = await inquirer.prompt([
-    {
-        name: "ageplz",
-        type: "input",
-        message: "Sir what Age plz to find your life stage (to exit type 0)"
+let loop = true;
+while (loop) {
+    let age = await inquirer.prompt([
+        {
+            name: "ageplz",
+            type: "number",
+            message: "Sir what Age plz to find your life stage (to exit type 0)"
+        }
+        //  ,
+        //     {
+        //         name: "yesno",
+        // type: "confirm",
+        // message: "Sir what Age plz to find your life stage (to exit type 0)",
+        // default: false
+        //  }
+    ]);
+    console.log(age.ageplz);
+    if (age.ageplz == 0 || age.ageplz == null) {
+        console.log("bye");
+        break;
     }
-]);
-console.log(age.ageplz);
-if (age.ageplz < 2) {
-    console.log("Person is a baby Life Stage");
-}
-else if (age.ageplz >= 2 && age.ageplz < 4) {
-    console.log("person is in todler life stage");
-}
-else if (age.ageplz >= 4 && age.ageplz < 13) {
-    console.log("person is in child life stage");
-}
-else if (age.ageplz >= 13 && age.ageplz < 20) {
-    console.log("person is in teen life stage");
-}
-else if (age.ageplz >= 20 && age.ageplz < 65) {
-    console.log("person is in Adult life stage");
-}
-else {
-    console.log("Person is in elder life stage");
+    if (age.ageplz >= 1 && age.ageplz < 2) {
+        console.log("Person is a baby Life Stage");
+    }
+    else if (age.ageplz >= 2 && age.ageplz < 4) {
+        console.log("person is in todler life stage");
+    }
+    else if (age.ageplz >= 4 && age.ageplz < 13) {
+        console.log("person is in child life stage");
+    }
+    else if (age.ageplz >= 13 && age.ageplz < 20) {
+        console.log("person is in teen life stage");
+    }
+    else if (age.ageplz >= 20 && age.ageplz < 65) {
+        console.log("person is in Adult life stage");
+    }
+    else {
+        console.log("Person is in elder life stage");
+    }
 }

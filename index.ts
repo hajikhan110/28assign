@@ -25,21 +25,32 @@ an adult.
 
 import inquirer from "inquirer"
 
-
+let loop :any=true;
+while(loop){
 let age: any = await inquirer.prompt([
     {
         name: "ageplz",
-type: "input",
+type: "number",
 message: "Sir what Age plz to find your life stage (to exit type 0)"
 
  }
+//  ,
+//     {
+//         name: "yesno",
+// type: "confirm",
+// message: "Sir what Age plz to find your life stage (to exit type 0)",
+// default: false
 
+//  }
 ]);
 
 console.log(age.ageplz);
+if(age.ageplz == 0 || age.ageplz ==null){
+    console.log("bye");
+    break;
+}
 
-
-if(age.ageplz < 2){
+if(age.ageplz >= 1 && age.ageplz < 2){
     console.log("Person is a baby Life Stage");
 }
 else if(age.ageplz >= 2 && age.ageplz < 4)
@@ -67,7 +78,7 @@ else
     console.log("Person is in elder life stage")
 }
 
-
+}
 
 
 
